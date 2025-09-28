@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Speech Recognition Demo</title>
+</head>
+<body>
+  <h1>Speak and See the Text</h1>
+  <button onclick="startRecognition()">Start Speaking</button>
+  <p id="result"></p>
+
+  <script>
+    async function startRecognition() {
+      const response = await fetch('/recognize');
+      const data = await response.text();
+      document.getElementById('result').innerText = data;
+    }
+  </script>
+</body>
+</html>

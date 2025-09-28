@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Meeting Assistant - Dashboard</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="home/css/dashboard.css"/>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2 class="logo">🤖 AI Assistant</h2>
+      <nav>
+        <ul>
+          <li class="active" data-section="dashboard">📊 Dashboard</li>
+          <li data-section="schedule">📅 Schedule</li>
+          <li data-section="tasks">✅ Tasks</li>
+          <li data-section="notifications">🔔 Notifications</li>
+          <li data-section="settings">⚙️ Settings</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main">
+      <!-- Top Navbar -->
+      <header class="topbar">
+        <input type="text" placeholder="🔍 Search..."/>
+        <div class="actions">
+          <button id="themeSwitch">🌙</button>
+          <span class="user">Hi, Alice</span>
+          <!-- Added: link to the summarizer script in the app folder -->
+          <a class="btn-summarize" href="../app/summarizer.py" target="_blank" download title="Open or download summarizer.py">📝 Summarize Audio</a>
+        </div>
+      </header>
+
+      <main class="content">
+        <!-- Dashboard -->
+        <section id="dashboard" class="section active">
+          <h1>Dashboard</h1>
+          <div class="cards">
+            <div class="card">
+              <h3>Upcoming Meetings</h3>
+              <p>3 scheduled this week</p>
+            </div>
+            <div class="card">
+              <h3>Tasks Progress</h3>
+              <p>7 tasks pending</p>
+            </div>
+            <div class="card">
+              <h3>Notifications</h3>
+              <p>5 unread alerts</p>
+            </div>
+          </div>
+
+          <div class="charts">
+            <canvas id="taskChart"></canvas>
+            <canvas id="meetingChart"></canvas>
+          </div>
+
+          <h2>Recent Activity</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Event</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>09:00</td>
+                <td>Daily Standup</td>
+                <td><span class="badge success">Done</span></td>
+              </tr>
+              <tr>
+                <td>13:00</td>
+                <td>API Debugging</td>
+                <td><span class="badge warning">Pending</span></td>
+              </tr>
+              <tr>
+                <td>16:00</td>
+                <td>Client Review</td>
+                <td><span class="badge danger">Overdue</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Schedule -->
+        <section id="schedule" class="section">
+          <h1>Schedule Meetings</h1>
+          <form id="scheduleForm">
+            <label>Meeting Title</label>
+            <input type="text" id="meetingTitle" placeholder="Enter meeting name" required>
+            <label>Date</label>
+            <input type="date" id="meetingDate" required>
+            <label>Time</label>
+            <input type="time" id="meetingTime" required>
+            <button type="submit">Add Meeting</button>
+          </form>
+
+          <h2>Upcoming Schedule</h2>
+          <ul id="scheduleList" class="list"></ul>
+        </section>
+
+        <!-- Tasks -->
+        <section id="tasks" class="section">
+          <h1>Tasks</h1>
+          <form id="taskForm">
+            <input type="text" id="taskInput" placeholder="Add new task..." required/>
+            <button type="submit">Add</button>
+          </form>
+          <ul id="taskList" class="list"></ul>
+        </section>
+
+        <!-- Notifications -->
+        <section id="notifications" class="section">
+          <h1>Notifications</h1>
+          <ul class="list">
+            <li>📧 New message from Alice</li>
+            <li>⚠️ Task deadline approaching</li>
+            <li>📢 System update completed</li>
+          </ul>
+        </section>
+
+        <!-- Settings -->
+        <section id="settings" class="section">
+          <h1>Settings</h1>
+          <form>
+            <label>Username</label>
+            <input type="text" placeholder="Enter username"/>
+            <label>Email</label>
+            <input type="email" placeholder="Enter email"/>
+            <label>Password</label>
+            <input type="password" placeholder="Enter password"/>
+            <label>Theme</label>
+            <select>
+              <option>Light</option>
+              <option>Dark</option>
+            </select>
+            <button type="submit">Save Settings</button>
+          </form>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="home/js/dashboard.js"></script>
+</body>
+</html>

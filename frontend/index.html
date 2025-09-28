@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔐 Login | AI Meeting Assistant</title>
+
+  <!-- Correct path -->
+  <link rel="stylesheet" href="home/css/login.css"/>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <h1>✨ AI Meeting Assistant</h1>
+      <p class="subtitle">Sign in to continue</p>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="you@example.com" required/>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••" required/>
+        </div>
+
+        <button type="submit" class="btn-login">Login</button>
+      </form>
+
+      <div class="extras">
+        <a href="#">Forgot password?</a>
+        <a href="#">Create new account</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Correct path -->
+  <script src="home/js/login.js" defer></script>
+
+  <!-- Added: navigate to dashboard on successful login click -->
+  <script>
+    // Simple client-side handler: prevent actual form POST and navigate to dashboard.html
+    document.addEventListener('DOMContentLoaded', function () {
+      var form = document.getElementById('loginForm');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          // You can add validation/auth logic here before redirecting
+          window.location.href = 'dashboard.html';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
